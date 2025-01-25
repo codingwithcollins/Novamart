@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to NovaMart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>
+        .hero {
+            background-image: url('https://via.placeholder.com/1920x600');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.25rem;
+        }
+        .button-area {
+  position: relative;
+}
+
+.btn-cart, .btn-outline-dark {
+  display: block; /* Always show buttons */
+}
+/* General input styles for quantity input */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
+
+/* Product item layout */
+.product-item {
+  position: relative;
+  padding: 16px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  box-shadow: 0px 0px 22px rgba(0, 0, 0, 0);
+  transition: box-shadow 0.3s ease-out, margin 0.3s ease-out;
+}
+
+/* Ensuring the button area is always visible */
+.product-item .button-area {
+  display: block;  /* Always visible */
+  position: relative; /* Adjusted from absolute to relative */
+  background: #fff;
+  width: 100%;
+  padding-top: 15px; /* Ensures there's some space above buttons */
+  z-index: 1;
+  box-shadow: 0px 20px 44px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease-out;
+}
+
+/* Adjustments for the product figure */
+.product-item figure {
+  text-align: center;
+}
+
+.product-item figure img {
+  max-height: 210px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover figure img {
+  transform: scale(1.05); /* Adds a zoom effect */
+}
+
+/* Quantity input styling */
+.product-item .button-area .quantity {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+/* Buttons inside the product item (Add to Cart & Wishlist) */
+.product-item .button-area .row {
+  display: flex;
+  justify-content: space-between; /* Space between the buttons */
+  align-items: center;
+}
+
+.product-item .button-area .col-3,
+.product-item .button-area .col-7,
+.product-item .button-area .col-2 {
+  padding: 0;
+}
+
+/* Button styles */
+.product-item .button-area .btn-cart,
+.product-item .button-area .btn-outline-dark {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* For quantity input */
+.product-item .product-qty {
+  width: 85px;
+}
+
+/* Make sure the "Add to Cart" button and Wishlist button are not hidden */
+.product-item .btn-link {
+  text-decoration: none;
+}
+
+.product-item #quantity {
+  height: auto;
+  width: 28px;
+  text-align: center;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.product-item .btn-number {
+  width: 26px;
+  height: 26px;
+  line-height: 1;
+  text-align: center;
+  background: #FFFFFF;
+  border: 1px solid #E2E2E2;
+  border-radius: 6px;
+  color: #222;
+  padding: 0;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">NovaMart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+   
+ <div class="hero">
+        <div>
+            <h1>Welcome to NovaMart</h1>
+            <p>Your one-stop shop for all your needs.</p>
+            <a href="#shop" class="btn btn-primary btn-lg">Shop Now</a>
+        </div>
+    </div>
+    <section id="shop" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Products</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 1</h5>
+                            <p class="card-text">This is a brief description of product 1.</p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 2</h5>
+                            <p class="card-text">This is a brief description of product 2.</p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Product 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 3</h5>
+                            <p class="card-text">This is a brief description of product 3.</p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--product -->
+    <div class="product-item swiper-slide">
+      <figure>
+        <a href="product-detail.html" title="Whole Wheat Sandwich Bread">
+          <img src="images/product-thumb-1.png" alt="Whole Wheat Sandwich Bread" class="tab-image">
+        </a>
+      </figure>
+      <div class="d-flex flex-column text-center">
+        <h3 class="fs-6 fw-normal">Whole Wheat Sandwich Bread</h3>
+        <div>
+          <span class="rating">
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+          </span>
+          <span>(222 reviews)</span>
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-2">
+          <del>$24.00</del>
+          <span class="text-dark fw-semibold">$18.00</span>
+          <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
+        </div>
+        <div class="button-area p-3 pt-0">
+          <div class="row g-1 mt-2">
+            <div class="col-3">
+              <input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1">
+            </div>
+            <div class="col-7">
+              <a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
+                <svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6">
+                <svg width="18" height="18"><use xlink:href="#heart"></use></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="product-item swiper-slide">
+      <figure>
+        <a href="index.html" title="Product Title">
+          <img src="images/product-thumb-21.png" alt="Product Thumbnail" class="tab-image">
+        </a>
+      </figure>
+      <div class="d-flex flex-column text-center">
+        <h3 class="fs-6 fw-normal">Sunstar Fresh Melon Juice</h3>
+        <div>
+          <span class="rating">
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+          </span>
+          <span>(222)</span>
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-2">
+          <del>$24.00</del>
+          <span class="text-dark fw-semibold">$18.00</span>
+          <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
+        </div>
+        <div class="button-area p-3 pt-0">
+          <div class="row g-1 mt-2">
+            <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
+            <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
+            <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item swiper-slide">
+      <figure>
+        <a href="index.html" title="Product Title">
+          <img src="images/product-thumb-22.png" alt="Product Thumbnail" class="tab-image">
+        </a>
+      </figure>
+      <div class="d-flex flex-column text-center">
+        <h3 class="fs-6 fw-normal">Gourmet Dark Chocolate</h3>
+        <div>
+          <span class="rating">
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+          </span>
+          <span>(222)</span>
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-2">
+          <del>$24.00</del>
+          <span class="text-dark fw-semibold">$18.00</span>
+          <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
+        </div>
+        <div class="button-area p-3 pt-0">
+          <div class="row g-1 mt-2">
+            <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
+            <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
+            <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item swiper-slide">
+      <figure>
+        <a href="index.html" title="Product Title">
+          <img src="images/product-thumb-23.png" alt="Product Thumbnail" class="tab-image">
+        </a>
+      </figure>
+      <div class="d-flex flex-column text-center">
+        <h3 class="fs-6 fw-normal">Sunstar Fresh Melon Juice</h3>
+        <div>
+          <span class="rating">
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+          </span>
+          <span>(222)</span>
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-2">
+          <del>$24.00</del>
+          <span class="text-dark fw-semibold">$18.00</span>
+          <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
+        </div>
+        <div class="button-area p-3 pt-0">
+          <div class="row g-1 mt-2">
+            <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
+            <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
+            <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item swiper-slide">
+      <figure>
+        <a href="index.html" title="Product Title">
+          <img src="images/product-thumb-10.png" alt="Product Thumbnail" class="tab-image">
+        </a>
+      </figure>
+      <div class="d-flex flex-column text-center">
+        <h3 class="fs-6 fw-normal">Greek Style Plain Yogurt</h3>
+        <div>
+          <span class="rating">
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+          </span>
+          <span>(222)</span>
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-2">
+          <del>$24.00</del>
+          <span class="text-dark fw-semibold">$18.00</span>
+          <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
+        </div>
+        <div class="button-area p-3 pt-0">
+          <div class="row g-1 mt-2">
+            <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
+            <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
+            <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item swiper-slide">
+      <figure>
+        <a href="index.html" title="Product Title">
+          <img src="images/product-thumb-11.png" alt="Product Thumbnail" class="tab-image">
+        </a>
+      </figure>
+      <div class="d-flex flex-column text-center">
+        <h3 class="fs-6 fw-normal">Pure Squeezed No Pulp Orange Juice</h3>
+        <div>
+          <span class="rating">
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+          </span>
+          <span>(222)</span>
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-2">
+          <del>$24.00</del>
+          <span class="text-dark fw-semibold">$18.00</span>
+          <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
+        </div>
+        <div class="button-area p-3 pt-0">
+          <div class="row g-1 mt-2">
+            <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
+            <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
+            <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item swiper-slide">
+      <figure>
+        <a href="index.html" title="Product Title">
+          <img src="images/product-thumb-12.png" alt="Product Thumbnail" class="tab-image">
+        </a>
+      </figure>
+      <div class="d-flex flex-column text-center">
+        <h3 class="fs-6 fw-normal">Fresh Oranges</h3>
+        <div>
+          <span class="rating">
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+            <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+          </span>
+          <span>(222)</span>
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-2">
+          <del>$24.00</del>
+          <span class="text-dark fw-semibold">$18.00</span>
+          <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
+        </div>
+        <div class="button-area p-3 pt-0">
+          <div class="row g-1 mt-2">
+            <div class="col-3"><input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
+            <div class="col-7"><a href="#" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart</a></div>
+            <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18" height="18"><use xlink:href="#heart"></use></svg></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--our blog-->
+    <section id="latest-blog" class="pb-4">
+      <div class="container-lg">
+        <div class="row">
+          <div class="section-header d-flex align-items-center justify-content-between my-4">
+            <h2 class="section-title">Our Latest Blog</h2>
+            <a href="#" class="btn btn-primary">View All</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <article class="post-item card border-0 shadow-sm p-3">
+              <div class="image-holder zoom-effect">
+                <a href="#">
+                  <img src="images/post-thumbnail-1.jpg" alt="post" class="card-img-top">
+                </a>
+              </div>
+              <div class="card-body">
+                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
+                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>22 Jan 2025</div>
+                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>Healthy Eating</div>
+                </div>
+                <div class="post-header">
+                  <h3 class="post-title">
+                    <a href="#" class="text-decoration-none">5 Essential Superfoods You Should Add to Your Grocery List</a>
+                  </h3>
+                  <p>Discover the top five superfoods that can improve your health and should be part of every grocery shopping list.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="post-item card border-0 shadow-sm p-3">
+              <div class="image-holder zoom-effect">
+                <a href="#">
+                  <img src="images/post-thumbnail-2.jpg" alt="post" class="card-img-top">
+                </a>
+              </div>
+              <div class="card-body">
+                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
+                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>20 Jan 2025</div>
+                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>Grocery Shopping Tips</div>
+                </div>
+                <div class="post-header">
+                  <h3 class="post-title">
+                    <a href="#" class="text-decoration-none">How to Shop Smart: Tips for Saving on Your Next Grocery Trip</a>
+                  </h3>
+                  <p>Learn how to plan your grocery shopping trips to save time and money with these simple and effective tips.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="post-item card border-0 shadow-sm p-3">
+              <div class="image-holder zoom-effect">
+                <a href="#">
+                  <img src="images/post-thumbnail-3.jpg" alt="post" class="card-img-top">
+                </a>
+              </div>
+              <div class="card-body">
+                <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
+                  <div class="meta-date"><svg width="16" height="16"><use xlink:href="#calendar"></use></svg>18 Jan 2025</div>
+                  <div class="meta-categories"><svg width="16" height="16"><use xlink:href="#category"></use></svg>Organic Foods</div>
+                </div>
+                <div class="post-header">
+                  <h3 class="post-title">
+                    <a href="#" class="text-decoration-none">The Benefits of Going Organic: Why You Should Choose Organic Groceries</a>
+                  </h3>
+                  <p>Organic food isn't just healthier, but it's also better for the environment. Here are the key reasons why you should switch to organic groceries.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--app store-->
+    <section class="pb-4 my-4">
+      <div class="container-lg">
+        <div class="bg-primary pt-5 rounded-5">
+          <div class="container">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-md-5">
+                <img src="images/banner-onlineapp.png" alt="phone" class="img-fluid">
+              </div>
+              <div class="col-md-4">
+                <h2 class="mt-5 text-white">Download NovaMart App</h2>
+                <p class="text-white">Enjoy seamless shopping experience, fast orders, and great deals.</p>
+                <div class="d-flex gap-2 flex-wrap mb-5">
+                  <a href="#" title="App Store" class="d-block">
+                    <img src="images/img-app-store.png" alt="App Store" class="img-fluid" style="max-width: 150px;">
+                  </a>
+                  <a href="#" title="Google Play" class="d-block">
+                    <img src="images/img-google-play.png" alt="Google Play" class="img-fluid" style="max-width: 150px;">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <section class="py-5 bg-light">
+      <div class="container-lg">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+          <div class="col">
+            <div class="card shadow-sm border-0 p-3">
+              <div class="text-primary mb-3">
+                <svg width="32" height="32"><use xlink:href="#package"></use></svg>
+              </div>
+              <div class="card-body p-0">
+                <h5 class="fw-bold">Free Delivery</h5>
+                <p class="card-text text-muted">Enjoy fast and free delivery on all orders, no minimum required.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm border-0 p-3">
+              <div class="text-primary mb-3">
+                <svg width="32" height="32"><use xlink:href="#secure"></use></svg>
+              </div>
+              <div class="card-body p-0">
+                <h5 class="fw-bold">100% Secure Payment</h5>
+                <p class="card-text text-muted">Shop with confidence, all transactions are fully encrypted and secure.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm border-0 p-3">
+              <div class="text-primary mb-3">
+                <svg width="32" height="32"><use xlink:href="#quality"></use></svg>
+              </div>
+              <div class="card-body p-0">
+                <h5 class="fw-bold">Quality Guarantee</h5>
+                <p class="card-text text-muted">We guarantee top-quality products that meet the highest standards.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm border-0 p-3">
+              <div class="text-primary mb-3">
+                <svg width="32" height="32"><use xlink:href="#savings"></use></svg>
+              </div>
+              <div class="card-body p-0">
+                <h5 class="fw-bold">Guaranteed Savings</h5>
+                <p class="card-text text-muted">Save big with our exclusive deals and promotions, every day.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm border-0 p-3">
+              <div class="text-primary mb-3">
+                <svg width="32" height="32"><use xlink:href="#offers"></use></svg>
+              </div>
+              <div class="card-body p-0">
+                <h5 class="fw-bold">Daily Offers</h5>
+                <p class="card-text text-muted">Get access to new offers every day, just for you!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <footer class="bg-light py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 NovaMart. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6FZgWl5/3p2e1iDkLVr5z5l5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p5p
